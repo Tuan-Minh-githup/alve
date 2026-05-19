@@ -1,0 +1,71 @@
+######################################################################
+Alve Document
+Quy chuẩn mã 65 ký tự để tìm tài liệu phù hợp
+######################################################################
+
+* Tiêu chuẩn mở đầu (4 ký tự) 
+- alve
+Hiện tại: alve_ (5 ký tự)
+VD: alve_
+
+* Tiêu chuẩn tên phần mềm (12 ký tự)
+- ############
+Hiện tại: alve_############_ (18 ký tự)
+VD: alve_apps########_
+
+* Tiêu chuẩn đóng gói (4 ký tự)
+- #### 
+Hiện tại: alve_############_####_ (23 ký tự)
+VD: alve_apps########_msi#_
+
+* Tiêu chuẩn bên phân phối (2 ký tự)
+- AA (phân phối chính chủ)
+- AB (phân phối chính chủ đã hợp tác)
+- BB (phân phối bên thứ 3)
+- BA (phân phối bên thứ 3 đã qua kiểm duyệt)
+Hiện tại: alve_############_####_##_ (26 ký tự)
+VD: alve_apps########_msi#_AA_
+
+* Tiêu chuẩn phiên bản ứng dụng (6 ký tự)
+- 000000 (00 đầu là phiên bản lớn, 00 ở giữa là phiên bản bổ sung hoặc suẳ tính năng, 00 cuối cập nhập nhỏ)
+Hiện tại: alve_############_####_##_000000_ (33 ký tự)
+VD: alve_apps########_msi#_AA_010432_
+
+* Tiêu chuẩn tên đầu của tài liệu về gì (10 ký tự)
+- ##########
+Hiện tại: alve_############_####_##_000000_##########_ (44 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_
+
+* Tiêu chuẩn chi tiết 1 (5 ký tự)
+- #####
+Hiện tại: alve_############_####_##_000000_##########_#####_ (50 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_GUF##_
+
+* Tiêu chuẩn chi tiết 2 (5 ký tự)
+- #####
+Hiện tại: alve_############_####_##_000000_##########_#####_#####_ (56 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_GUF##_NAH##_
+
+* Tiêu chuẩn chi tiết 3 (5 ký tự)
+- #####
+Hiện tại: alve_############_####_##_000000_##########_#####_#####_#####_ (62 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_GUF##_NAH##_TNM##_
+
+* Tiêu chuẩn phiên bản tài liệu (2 ký tự)
+- 00
+Hiện tại: alve_############_####_##_000000_##########_#####_#####_#####_00_ (66 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_GUF##_NAH##_TNM##_20_
+
+* Tiêu chuẩn kiến trúc (3 ký tự)
+- ###
+Hiện tại: alve_############_####_##_000000_##########_#####_#####_#####_00_### (62 ký tự)
+VD: alve_apps########_msi#_AA_010432_APIIDA####_GUF##_NAH##_TNM##_20_x64
+
+
+
+
+
+
+
+
+
