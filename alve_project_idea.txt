@@ -1,0 +1,43 @@
+ĐIỀU LỆ DỰ ÁN HỆ SINH THÁI ALVE
+I. TRIẾT LÝ CỐT LÕI (CORE PHILOSOPHY)
+Minh bạch tuyệt đối: 100% mã nguồn mở dưới giấy phép GPL_v3.
+
+Module hóa (Decoupling): Các thành phần trong hệ sinh thái hoạt động độc lập. Người dùng có quyền lựa chọn cài đặt những gì cần thiết, không ép buộc cài đặt trọn bộ.
+
+Quyền quyết định thuộc về người dùng: Alve không tự ý can thiệp vào dữ liệu cá nhân hay tự động tải tệp khi chưa có sự cho phép minh bạch.
+
+Tiêu chuẩn "Ngon - Bổ - Rẻ": Miễn phí hoàn toàn, tập trung vào công năng thực dụng và hiệu năng ổn định trên mọi cấu hình máy (kể cả máy RAM 4GB).
+
+II. KIẾN TRÚC HỆ THỐNG (SYSTEM ARCHITECTURE) trên Github
+Hệ sinh thái được chia làm hai phần chính:
+
+Bộ lưu trữ Alve: Lưu trữ tài liệu, triết lý, bộ công cụ (tools) đa nền tảng và các tệp tin cấu hình dùng chung.
+
+Kho lưu trữ Alve Apps: Bao gồm alve-apps (trung tâm), alve-nexus, alve-guard và các ứng dụng phát triển trong tương lai. Mỗi app chỉ làm đúng một mục đích chuyên biệt.
+
+III. TIÊU CHUẨN KỸ THUẬT & PHÂN PHỐI
+Ngôn ngữ & Đóng gói: Phát triển bằng Python nhưng được đóng gói chuyên nghiệp dưới dạng .msi, .exe (Windows) và .deb, .rpm (Linux).
+
+Khả năng tương thích: Ưu tiên kiến trúc 64-bit và hỗ trợ ARM trong tương lai gần.
+
+Đa nền tảng (Cross-platform): Tích hợp sẵn công cụ hỗ trợ cho nhiều hệ điều hành khác nhau (đi kèm đánh đổi về dung lượng ổ cứng để đảm bảo sự tiện dụng) sẽ có tùy chọn cho việc dọn dẹp sự thừa thãi này (Hiện tại đã được chuyển hết vào Alve apps).
+
+IV. NGUYÊN TẮC BẢO MẬT & UY TÍN (SECURITY & TRUST)
+Bảo mật ủy thác: Alve không tích hợp tính năng quét virus nội bộ để tránh xung đột và chiếm dụng tài nguyên. Trách nhiệm này được ủy thác cho Hệ điều hành và các phần mềm chuyên dụng của bên thứ ba.
+
+Niêm phong Integrity: Mọi bản phân phối bắt buộc đi kèm mã checksum SHA-256 để người dùng xác minh tính nguyên bản, chống lại sự ký sinh của virus.
+
+Cập nhật cuốn chiếu (Rolling Update): Chỉ hỗ trợ và duy trì uy tín trên phiên bản mới nhất. Các phiên bản cũ sẽ bị "khai tử" ngay khi có bản cập nhật mới để tránh lỗi cục bộ và nợ kỹ thuật.
+
+V. CỘNG ĐỒNG & PHÁT TRIỂN BÊN THỨ BA
+Tích hợp mở: Cho phép bên thứ ba phát triển tiện ích mở rộng.
+
+Tiêu chí xét duyệt chính chủ: Các app chỉnh sửa hoặc app mới muốn gia nhập hệ sinh thái Alve Apps phải vượt qua 3 điều kiện:
+
+Minh bạch: Mã nguồn rõ ràng.
+
+Không mã độc: An toàn tuyệt đối cho người dùng.
+
+Tích hợp sâu: Hoạt động mượt mà với Alve Apps hạt nhân.
+
+Bảo vệ thương hiệu: Các phiên bản chỉnh sửa không đạt chuẩn buộc phải thay đổi hoặc xóa bỏ giấy phép chính chủ của Alve.
