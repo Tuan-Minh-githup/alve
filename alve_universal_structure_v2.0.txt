@@ -1,0 +1,70 @@
+# ==============================================================================
+# ALVE UNIFIED STRUCTURE (AUS) - PHIÊN BẢN HOÀN THIỆN (v2.0)
+# Triết lý: Chậm mà chắc - Uy tín hàng đầu - Hệ sinh thái cộng sinh
+# ==============================================================================
+
+[1. MỤC TIÊU CỐT LÕI]
+- Loại bỏ trí nhớ con người: Cấu trúc giống hệt nhau 100% ở mọi App.
+- Cưỡng bách tối ưu: Buộc App lẻ phải dựa vào Alve Apps để nhẹ máy và an toàn.
+- Bất tử hóa dữ liệu: User_Space là thánh đường, không bao giờ mất khi update.
+
+[2. CẤU TRÚC THƯ MỤC CHUẨN (MANDATORY)]
+
+Alve_[AppName]/
+├── .alve/                       # [PHẦN CỨNG DANH TÍNH]
+│   ├── identity.json            # ID, Version, Thông tin tác giả.
+│   ├── signature.key            # Chữ ký chính chủ (Xác thực với Alve Apps).
+│   └── logs/                    # Nhật ký đen (Diagnostic logs - Black Box).
+│
+├── Alve_Core/                   # [BỘ NÃO ĐIỀU PHỐI - COPY/PASTE 100%]
+│   ├── Bridge/                  # Giao thức độc đạo nói chuyện với Alve Apps.
+│   ├── Pulse/                   # Nhịp tim gửi thông số RAM/CPU về Alve Guard.
+│   ├── Diagnostic/              # Module tự ghi lỗi khi hệ thống gặp sự cố.
+│   └── Security/                # Bộ quét SHA-256 nội bộ để tự kiểm tra mình.
+│
+├── Specifics/                   # [VÙNG SÁNG TẠO - RIÊNG BIỆT]
+│   ├── Source/                  # Logic code chính (main.py, v.v.).
+│   ├── Resources/               # Icon, ảnh, theme đặc thù của app.
+│   └── Tools/                   # CÔNG CỤ TẠM THỜI (Bị xóa khi nạp vào Alve Apps).
+│
+├── Recovery/                    # [ĐIỂM HỒI SINH]
+│   └── backup_latest.zip        # Bản sao lưu tự động trước khi ghi đè update.
+│
+├── User_Space/                  # [THÁNH ĐƯỜNG DỮ LIỆU]
+│   └── data/                    # Nơi lưu cấu hình người dùng, tuyệt đối bất di bất dịch.
+│
+├── Binaries/                    # [THỰC THI]
+│   ├── Windows/                 # .exe, .msi
+│   └── Linux/                   # .deb, .rpm
+│
+└── integrity.sha256             # Mã băm niêm phong toàn bộ App.
+
+[3. QUY TRÌNH GIAO TIẾP "CẦU NỐI ĐỘC ĐẠO"]
+1. App con không được tự ý đọc dữ liệu của nhau.
+2. Mọi yêu cầu (ví dụ Nexus muốn hỏi Guard về RAM) phải gửi qua Alve_Core/Bridge.
+3. Bridge gửi yêu cầu tới Alve Apps. 
+4. Alve Apps xác thực 'signature.key', nếu khớp mới cho phép trao đổi.
+
+[4. LUẬT TÀI NGUYÊN (82/1.6 RULE)]
+- Mỗi App qua module Pulse phải báo cáo trạng thái mỗi 5 giây.
+- Alve Guard có quyền 'Kill' bất kỳ App vệ tinh nào vi phạm:
+  * CPU/RAM toàn hệ thống > 82%.
+  * RAM trống của OS < 1.6GB.
+
+[5. CƠ CHẾ TIẾT KIỆM DUNG LƯỢNG (DEDUPLICATION)]
+- Khi App vệ tinh chạy Standalone: Phải chứa đầy đủ thư viện trong /Specifics/Tools.
+- Khi App vệ tinh nạp vào Alve Apps:
+  * Alve Apps xóa sạch /Specifics/Tools của App con.
+  * Alve Apps trỏ liên kết (Symlink) về kho Tools dùng chung của hệ sinh thái.
+  * Dung lượng App giảm tối đa (Ví dụ từ 500MB xuống 20MB).
+
+[6. QUY TRÌNH CẬP NHẬT CUỐN CHIẾU]
+- Bước 1: Tải bản mới về Temp.
+- Bước 2: Nén bản hiện tại vào /Recovery.
+- Bước 3: Ghi đè bản mới.
+- Bước 4: Kiểm tra SHA-256 sau khi ghi đè.
+- Bước 5: Nếu SHA-256 sai -> Xóa và bung file từ /Recovery để hồi sinh.
+
+# ==============================================================================
+# ALVE: CHẬM MÀ CHẮC - KHÔNG CÓ TƯƠNG THÍCH NGƯỢC - CHỈ CÓ SỰ HOÀN HẢO
+# ==============================================================================
